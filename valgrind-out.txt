@@ -1,0 +1,279 @@
+==897== Memcheck, a memory error detector
+==897== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==897== Using Valgrind-3.18.1-42b08ed5bd-20211015 and LibVEX; rerun with -h for copyright info
+==897== Command: ./command_line
+==897== Parent PID: 109
+==897== 
+--897-- 
+--897-- Valgrind options:
+--897--    --leak-check=full
+--897--    --show-leak-kinds=all
+--897--    --track-origins=yes
+--897--    --verbose
+--897--    --log-file=valgrind-out.txt
+--897-- Contents of /proc/version:
+--897--   Linux version 5.10.16.3-microsoft-standard-WSL2 (oe-user@oe-host) (x86_64-msft-linux-gcc (GCC) 9.3.0, GNU ld (GNU Binutils) 2.34.0.20200220) #1 SMP Fri Apr 2 22:23:49 UTC 2021
+--897-- 
+--897-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-lzcnt-rdtscp-sse3-ssse3-avx-avx2-bmi-f16c-rdrand-rdseed
+--897-- Page sizes: currently 4096, max supported 4096
+--897-- Valgrind library directory: /usr/libexec/valgrind
+--897-- Reading syms from /home/nathanml/workspace/CS111/PA4/command_line
+--897-- Reading syms from /usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2
+--897--   Considering /usr/lib/debug/.build-id/15/921ea631d9f36502d20459c43e5c85b7d6ab76.debug ..
+--897--   .. build-id is valid
+--897-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--897--    object doesn't have a symbol table
+--897--    object doesn't have a dynamic symbol table
+--897-- Scheduler: using generic scheduler lock implementation.
+--897-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==897== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-897-by-nathanml-on-???
+==897== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-897-by-nathanml-on-???
+==897== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-897-by-nathanml-on-???
+==897== 
+==897== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==897== don't want to do, unless you know exactly what you're doing,
+==897== or are doing some strange experiment):
+==897==   /usr/bin/vgdb --pid=897 ...command...
+==897== 
+==897== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==897==   /path/to/gdb ./command_line
+==897== and then give GDB the following command
+==897==   target remote | /usr/bin/vgdb --pid=897
+==897== --pid is optional if only one valgrind process is running
+==897== 
+--897-- REDIR: 0x402aa40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580bcec2 (???)
+--897-- REDIR: 0x402a810 (ld-linux-x86-64.so.2:index) redirected to 0x580bcedc (???)
+--897-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--897--    object doesn't have a symbol table
+--897-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+--897--    object doesn't have a symbol table
+==897== WARNING: new redirection conflicts with existing -- ignoring it
+--897--     old: 0x0402aa40 (strlen              ) R-> (0000.0) 0x580bcec2 ???
+--897--     new: 0x0402aa40 (strlen              ) R-> (2007.0) 0x0484ee30 strlen
+--897-- REDIR: 0x4027220 (ld-linux-x86-64.so.2:strcmp) redirected to 0x484fcd0 (strcmp)
+--897-- REDIR: 0x402afa0 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4853840 (mempcpy)
+--897-- Reading syms from /usr/lib/x86_64-linux-gnu/libc.so.6
+--897--   Considering /usr/lib/debug/.build-id/c2/89da5071a3399de893d2af81d6a30c62646e1e.debug ..
+--897--   .. build-id is valid
+==897== WARNING: new redirection conflicts with existing -- ignoring it
+--897--     old: 0x04908c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--897--     new: 0x04908c60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==897== WARNING: new redirection conflicts with existing -- ignoring it
+--897--     old: 0x04908c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--897--     new: 0x04908c60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+==897== WARNING: new redirection conflicts with existing -- ignoring it
+--897--     old: 0x04908c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--897--     new: 0x04908c60 (memalign            ) R-> (1017.0) 0x0484e050 aligned_alloc
+==897== WARNING: new redirection conflicts with existing -- ignoring it
+--897--     old: 0x04908c60 (memalign            ) R-> (1011.0) 0x0484e080 memalign
+--897--     new: 0x04908c60 (memalign            ) R-> (1017.0) 0x0484e020 aligned_alloc
+--897-- REDIR: 0x490b720 (libc.so.6:strnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b9e0 (libc.so.6:strpbrk) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b2e0 (libc.so.6:strcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x4929cd0 (libc.so.6:wcsnlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490c6d0 (libc.so.6:memset) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x4928540 (libc.so.6:wcslen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490cc10 (libc.so.6:memcpy@@GLIBC_2.14) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x4928370 (libc.so.6:wcschr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b260 (libc.so.6:index) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b960 (libc.so.6:rindex) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490c5a0 (libc.so.6:memmove) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+==897== Preferring higher priority redirection:
+--897--     old: 0x04a037c0 (__memcpy_avx_unalign) R-> (2018.0) 0x04850f90 __memcpy_avx_unaligned_erms
+--897--     new: 0x04a037c0 (__memcpy_avx_unalign) R-> (2018.1) 0x04852880 memmove
+--897-- REDIR: 0x49283f0 (libc.so.6:wcscmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490c9e0 (libc.so.6:stpncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x49289b0 (libc.so.6:wmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b830 (libc.so.6:strncmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490ca70 (libc.so.6:strcasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b420 (libc.so.6:strcspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x4928470 (libc.so.6:wcscpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b1d0 (libc.so.6:strcat) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490cb60 (libc.so.6:strncasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490c480 (libc.so.6:bcmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x4914570 (libc.so.6:memrchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490e010 (libc.so.6:strchrnul) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b390 (libc.so.6:strcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490cb10 (libc.so.6:strcasecmp_l) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b6a0 (libc.so.6:strlen) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490b8d0 (libc.so.6:strncpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490c950 (libc.so.6:stpcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490c3f0 (libc.so.6:memchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490bb00 (libc.so.6:strspn) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490c7d0 (libc.so.6:mempcpy) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490cac0 (libc.so.6:strncasecmp) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x490df80 (libc.so.6:rawmemchr) redirected to 0x483f220 (_vgnU_ifunc_wrapper)
+--897-- REDIR: 0x4a00610 (libc.so.6:__strrchr_avx2) redirected to 0x484e810 (rindex)
+--897-- REDIR: 0x4a00400 (libc.so.6:__strchrnul_avx2) redirected to 0x4853330 (strchrnul)
+--897-- REDIR: 0x49080a0 (libc.so.6:malloc) redirected to 0x4848820 (malloc)
+--897-- REDIR: 0x49fc2c0 (libc.so.6:__memchr_avx2) redirected to 0x484fd50 (memchr)
+--897-- REDIR: 0x4a037c0 (libc.so.6:__memcpy_avx_unaligned_erms) redirected to 0x4852880 (memmove)
+--897-- REDIR: 0x4a007e0 (libc.so.6:__strlen_avx2) redirected to 0x484ed10 (strlen)
+--897-- REDIR: 0x49fb940 (libc.so.6:__strcmp_avx2) redirected to 0x484fbd0 (strcmp)
+--897-- REDIR: 0x4a03f80 (libc.so.6:__memset_avx2_unaligned_erms) redirected to 0x4852770 (memset)
+--897-- REDIR: 0x49fb800 (libc.so.6:__strspn_sse42) redirected to 0x4853d50 (strspn)
+--897-- REDIR: 0x49fb5a0 (libc.so.6:__strcspn_sse42) redirected to 0x4853c70 (strcspn)
+--897-- REDIR: 0x4a03780 (libc.so.6:__mempcpy_avx_unaligned_erms) redirected to 0x4853440 (mempcpy)
+--897-- REDIR: 0x4a01cb0 (libc.so.6:__strcpy_avx2) redirected to 0x484ee60 (strcpy)
+--897-- REDIR: 0x49083e0 (libc.so.6:free) redirected to 0x484b210 (free)
+==897== Conditional jump or move depends on uninitialised value(s)
+==897==    at 0x484ED28: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x48D9D30: __vfprintf_internal (vfprintf-internal.c:1517)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10B7DB: jfs_write (jumbo_file_system.c:530)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Uninitialised value was created by a stack allocation
+==897==    at 0x10B343: jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== Conditional jump or move depends on uninitialised value(s)
+==897==    at 0x48EE737: _IO_new_file_xsputn (fileops.c:1218)
+==897==    by 0x48EE737: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==897==    by 0x48DA00B: outstring_func (vfprintf-internal.c:239)
+==897==    by 0x48DA00B: __vfprintf_internal (vfprintf-internal.c:1517)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10B7DB: jfs_write (jumbo_file_system.c:530)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Uninitialised value was created by a stack allocation
+==897==    at 0x10B343: jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== Syscall param write(buf) points to uninitialised byte(s)
+==897==    at 0x4977887: write (write.c:26)
+==897==    by 0x48EDEEC: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
+==897==    by 0x48EF9E0: new_do_write (fileops.c:448)
+==897==    by 0x48EF9E0: _IO_new_do_write (fileops.c:425)
+==897==    by 0x48EF9E0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
+==897==    by 0x48EE6D4: _IO_new_file_xsputn (fileops.c:1243)
+==897==    by 0x48EE6D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==897==    by 0x48D8FC9: outstring_func (vfprintf-internal.c:239)
+==897==    by 0x48D8FC9: __vfprintf_internal (vfprintf-internal.c:1593)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10B7DB: jfs_write (jumbo_file_system.c:530)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Address 0x4a8f099 is 89 bytes inside a block of size 1,024 alloc'd
+==897==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x48E1BA3: _IO_file_doallocate (filedoalloc.c:101)
+==897==    by 0x48F0CDF: _IO_doallocbuf (genops.c:347)
+==897==    by 0x48EFF5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==897==    by 0x48EE6D4: _IO_new_file_xsputn (fileops.c:1243)
+==897==    by 0x48EE6D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==897==    by 0x48D814C: outstring_func (vfprintf-internal.c:239)
+==897==    by 0x48D814C: __vfprintf_internal (vfprintf-internal.c:1263)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10A0CE: prompt_for_input (command_line.c:250)
+==897==    by 0x10A1B2: main (command_line.c:290)
+==897==  Uninitialised value was created by a stack allocation
+==897==    at 0x10B343: jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== Invalid read of size 8
+==897==    at 0x485298D: memmove (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x10B610: jfs_write (jumbo_file_system.c:498)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Address 0x4a8fb18 is 6 bytes after a block of size 2 alloc'd
+==897==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x490B58E: strdup (strdup.c:42)
+==897==    by 0x109FF3: run_command (command_line.c:230)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897== 
+==897== Syscall param write(buf) points to uninitialised byte(s)
+==897==    at 0x4977887: write (write.c:26)
+==897==    by 0x10BFE4: write_block (raw_disk.c:70)
+==897==    by 0x10B628: jfs_write (jumbo_file_system.c:499)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Address 0x1ffefff7c2 is on thread 1's stack
+==897==  in frame #2, created by jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== 
+==897== HEAP SUMMARY:
+==897==     in use at exit: 0 bytes in 0 blocks
+==897==   total heap usage: 11 allocs, 11 frees, 2,213 bytes allocated
+==897== 
+==897== All heap blocks were freed -- no leaks are possible
+==897== 
+==897== ERROR SUMMARY: 14 errors from 5 contexts (suppressed: 0 from 0)
+==897== 
+==897== 1 errors in context 1 of 5:
+==897== Syscall param write(buf) points to uninitialised byte(s)
+==897==    at 0x4977887: write (write.c:26)
+==897==    by 0x10BFE4: write_block (raw_disk.c:70)
+==897==    by 0x10B628: jfs_write (jumbo_file_system.c:499)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Address 0x1ffefff7c2 is on thread 1's stack
+==897==  in frame #2, created by jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== 
+==897== 1 errors in context 2 of 5:
+==897== Invalid read of size 8
+==897==    at 0x485298D: memmove (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x10B610: jfs_write (jumbo_file_system.c:498)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Address 0x4a8fb18 is 6 bytes after a block of size 2 alloc'd
+==897==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x490B58E: strdup (strdup.c:42)
+==897==    by 0x109FF3: run_command (command_line.c:230)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897== 
+==897== 
+==897== 1 errors in context 3 of 5:
+==897== Syscall param write(buf) points to uninitialised byte(s)
+==897==    at 0x4977887: write (write.c:26)
+==897==    by 0x48EDEEC: _IO_file_write@@GLIBC_2.2.5 (fileops.c:1180)
+==897==    by 0x48EF9E0: new_do_write (fileops.c:448)
+==897==    by 0x48EF9E0: _IO_new_do_write (fileops.c:425)
+==897==    by 0x48EF9E0: _IO_do_write@@GLIBC_2.2.5 (fileops.c:422)
+==897==    by 0x48EE6D4: _IO_new_file_xsputn (fileops.c:1243)
+==897==    by 0x48EE6D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==897==    by 0x48D8FC9: outstring_func (vfprintf-internal.c:239)
+==897==    by 0x48D8FC9: __vfprintf_internal (vfprintf-internal.c:1593)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10B7DB: jfs_write (jumbo_file_system.c:530)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Address 0x4a8f099 is 89 bytes inside a block of size 1,024 alloc'd
+==897==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x48E1BA3: _IO_file_doallocate (filedoalloc.c:101)
+==897==    by 0x48F0CDF: _IO_doallocbuf (genops.c:347)
+==897==    by 0x48EFF5F: _IO_file_overflow@@GLIBC_2.2.5 (fileops.c:744)
+==897==    by 0x48EE6D4: _IO_new_file_xsputn (fileops.c:1243)
+==897==    by 0x48EE6D4: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==897==    by 0x48D814C: outstring_func (vfprintf-internal.c:239)
+==897==    by 0x48D814C: __vfprintf_internal (vfprintf-internal.c:1263)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10A0CE: prompt_for_input (command_line.c:250)
+==897==    by 0x10A1B2: main (command_line.c:290)
+==897==  Uninitialised value was created by a stack allocation
+==897==    at 0x10B343: jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== 
+==897== 5 errors in context 4 of 5:
+==897== Conditional jump or move depends on uninitialised value(s)
+==897==    at 0x48EE737: _IO_new_file_xsputn (fileops.c:1218)
+==897==    by 0x48EE737: _IO_file_xsputn@@GLIBC_2.2.5 (fileops.c:1196)
+==897==    by 0x48DA00B: outstring_func (vfprintf-internal.c:239)
+==897==    by 0x48DA00B: __vfprintf_internal (vfprintf-internal.c:1517)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10B7DB: jfs_write (jumbo_file_system.c:530)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Uninitialised value was created by a stack allocation
+==897==    at 0x10B343: jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== 
+==897== 6 errors in context 5 of 5:
+==897== Conditional jump or move depends on uninitialised value(s)
+==897==    at 0x484ED28: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==897==    by 0x48D9D30: __vfprintf_internal (vfprintf-internal.c:1517)
+==897==    by 0x48C379E: printf (printf.c:33)
+==897==    by 0x10B7DB: jfs_write (jumbo_file_system.c:530)
+==897==    by 0x10A025: run_command (command_line.c:232)
+==897==    by 0x10A1C3: main (command_line.c:292)
+==897==  Uninitialised value was created by a stack allocation
+==897==    at 0x10B343: jfs_write (jumbo_file_system.c:430)
+==897== 
+==897== ERROR SUMMARY: 14 errors from 5 contexts (suppressed: 0 from 0)
